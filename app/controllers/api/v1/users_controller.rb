@@ -110,6 +110,7 @@ class UsersController < ApplicationController
       # Grab image for friend
       imagePage = Nokogiri::HTML(friendPage.content.toutf8)
       currentFriend.img = imagePage.css("#root img")[0]["src"]
+      currentFriend.save()
 
     #Set up the doc to be scraped
     doc = Nokogiri::HTML(finalPage.content.toutf8)
@@ -176,7 +177,7 @@ class UsersController < ApplicationController
   end #while loop
   return currentUser
   end #ending the facebook page request
-  
+
   end #ends the method
 
 
