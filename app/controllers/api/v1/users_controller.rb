@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def show
 
     @user = User.find(params[:id])
-    @userFriends = User.all.first.friends.where(user_id: params[:id])
+    @userFriends = Friend.all.where(user_id: params[:id])
 
     render json: @userFriends
   end
@@ -79,7 +79,7 @@ class UsersController < ApplicationController
   keepGoing = true
 
   #Go through the pages of friends and extract info
-  while keepGoing && pageNum < 5
+  while keepGoing && pageNum < 3
     friends = a.get("https://mbasic.facebook.com/friends/center/friends/?ppk=#{pageNum}")
 
   #Set up next page number
