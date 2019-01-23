@@ -8,6 +8,14 @@ class UsersController < ApplicationController
     render json: User.all
   end
 
+  def show
+
+    @user = User.find(params[:id])
+    @userFriends = User.all.first.friends.where(user_id: params[:id])
+
+    render json: @userFriends
+  end
+
   def create
 
     b = Mechanize.new
@@ -39,6 +47,7 @@ class UsersController < ApplicationController
 
     end
 
+
     # @user = User.create(email: params["email"])
     # # debugger
     # render json: {status:"SUCCESS"}
@@ -63,6 +72,7 @@ class UsersController < ApplicationController
 
   #Create a new user with the current info
   currentUser = User.create(name: currentName, email: loginEmail)
+  Score.create(total: 0, correct: 0, user_id: currentUser.id)
 
   #Set up the first page of friends to go through and toggle for more pages of friends
   pageNum = 0
