@@ -79,7 +79,7 @@ class UsersController < ApplicationController
   keepGoing = true
 
   #Go through the pages of friends and extract info
-  while keepGoing && pageNum < 3
+  while keepGoing
     friends = a.get("https://mbasic.facebook.com/friends/center/friends/?ppk=#{pageNum}")
 
   #Set up next page number

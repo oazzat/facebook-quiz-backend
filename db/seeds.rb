@@ -134,3 +134,5 @@
 # end #ending the facebook page request
 #
 # end #ends the method
+
+byebug
