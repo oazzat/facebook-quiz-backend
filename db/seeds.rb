@@ -131,6 +131,3 @@
 # end #ending the facebook page request
 #
 # end #ends the method
-
-user = User.find_by(email: 'omarazzat@aol.com')
-puts user.name
