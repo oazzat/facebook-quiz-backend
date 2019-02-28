@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def show
 
     @user = User.find(params[:id])
-    @userFriends = Friend.all.where(user_id: params[:id])
+    @userFriends = Friend.all.where(user_id: params[:id]).where.not(img: nil)
 
     render json: @userFriends
   end

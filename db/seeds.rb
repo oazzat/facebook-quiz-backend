@@ -135,4 +135,5 @@
 #
 # end #ends the method
 
-byebug
+user = User.find_by(email: 'omarazzat@aol.com')
+puts user
